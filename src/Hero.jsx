@@ -34,9 +34,9 @@ const CONFIG = {
   ],
 
   reasons: [
-    { short: "The way you laugh", long: "Loud, unfiltered, a little too much — and my favorite sound in any room." },
+    {short: "Your laugh",long: "I could hear you laugh a thousand times and still find myself smiling every single time."},
     { short: "How you remember", long: "The tiny things I mention once, in passing, that you somehow never forget." },
-    { short: "Your particular chaos", long: "Organized on the outside, delightfully unhinged in the group chat. I love both versions." },
+    {short: "Your beautiful chaos",long: "A little unpredictable, wonderfully weird, and completely, unapologetically you. I wouldn’t change a thing."},
     { short: "The way you show up", long: "For the people you love, on the days it's hard, without being asked twice." },
     { short: "How safe it feels", long: "Talking to you is the only place my brain fully stops running." },
     { short: "You, generally", long: "I could make this list a hundred cards long and still leave things out." },
@@ -611,7 +611,7 @@ export default function App() {
           like a postcard tipping into the light as it opens.
         */
         .reveal{
-          --p: 0;
+          --p: 1 !important;
           position:relative;
           opacity: var(--p);
           transform-origin: 50% 100%;
