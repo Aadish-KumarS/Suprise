@@ -1,11 +1,15 @@
 import Hero from './Hero'
+import LoadingScreen from './LoadingScreen'
 
 
 function App() {
 
   return (
-    // <Suprise />
-    <Hero />
+    <>
+      <LoadingScreen />
+      <Hero />
+    </>
+    
   )
 }
 

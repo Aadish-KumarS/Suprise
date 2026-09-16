@@ -3,7 +3,7 @@ import { Heart, ChevronDown, Star } from "lucide-react";
 
 
 const CONFIG = {
-  name: "Jenisha Krish Balakrishnan", // <-- put her name here
+  name: "Jenisha Krish Balakrishnan",
   kicker: "a little something for",
   heroSubtitle: "Scroll down slowly. I made you something.",
 
@@ -80,16 +80,7 @@ function useScrollProgress() {
   return progress;
 }
 
-/*
- * Postcard reveal: instead of a one-shot fade-up, each registered element
- * gets a continuously-updated CSS variable (--p, 0→1) that tracks its own
- * position in the viewport as you scroll. The CSS then reads --p to drive
- * a 3D "flap opening" tilt, a focus-pull blur, and a light-catch shimmer —
- * so the motion is scrubbed directly by the scrollbar, not just triggered
- * once and left alone. Pass an optional pixel offset to `register` to
- * stagger a group of elements (e.g. cards in the same row) against the
- * same scroll distance.
- */
+
 function usePostcardReveal() {
   const els = useRef(new Set());
   const active = useRef(new Set());
@@ -205,8 +196,6 @@ function useCursorGlow(ref) {
 }
 
 /* -------------------------- pixel art sprites -------------------------- */
-/* Tiny 8-bit style sprites, drawn with a single element's box-shadow list
-   (one "on" pixel per shadow) so dozens of them cost almost nothing. */
 
 const PIXEL_HEART = [
   "01100110",
@@ -371,20 +360,7 @@ function TimelineMoment({ moment, index, register }) {
   );
 }
 
-/*
- * ReasonCard — the flip card.
- * IMPORTANT: the scroll-reveal class/ref lives on a plain WRAPPER div whose
- * className never changes across renders. The flip state (`is-flipped`)
- * lives only on the inner button. Previously both were combined in one
- * className string on the same node the IntersectionObserver was mutating
- * imperatively (`classList.add("in-view")`); clicking the card changed
- * React state, which made React recompute and overwrite that node's whole
- * className on the next render — wiping out the manually-added reveal
- * class and snapping the card back to its hidden/offscreen state (the
- * "disappearing" glitch). Splitting them onto two nodes fixes it, and the
- * new reveal mechanism no longer mutates classes at all — it only writes a
- * CSS variable, so nothing React renders can ever clobber it.
- */
+
 function ReasonCard({ reason, index, register }) {
   const [flipped, setFlipped] = useState(false);
   return (
